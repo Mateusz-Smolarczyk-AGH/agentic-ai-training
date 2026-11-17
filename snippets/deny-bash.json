@@ -1,0 +1,8 @@
+{
+  "permission": {
+    "bash": {
+      "rm -rf *": "deny",
+      "rm -fr *": "deny"
+    }
+  }
+}

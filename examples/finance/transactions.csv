@@ -1,0 +1,8 @@
+date,description,category,type,amount,currency
+2026-10-02,Licence sales,Revenue,income,12000,PLN
+2026-10-05,SaaS subscription,Operating,expense,450,USD
+2026-10-07,Ad campaign,Marketing,expense,800,EUR
+2026-10-10,Team bonus,Payroll,expense,3000,GBP
+2026-10-15,Consulting service,Revenue,income,2500,EUR
+2026-10-20,Hosting,Infrastructure,expense,1200,PLN
+2026-10-22,Training sales,Revenue,income,900,USD

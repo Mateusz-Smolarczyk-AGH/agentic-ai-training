@@ -1,0 +1,5 @@
+Quarterly report (DUMMY — demo data, nothing here is real).
+
+- revenue: 100
+- cost: 80
+- result: 20

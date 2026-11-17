@@ -1,0 +1,3 @@
+# Make raw/ and wiki/ visible to grep: they are covered by .gitignore, and the agent must search them.
+!wiki/llm-wiki/
+!wiki/llm-wiki/**
