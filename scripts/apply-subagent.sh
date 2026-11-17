@@ -32,7 +32,7 @@ with open(path, "w", encoding="utf-8") as handle:
     json.dump(cfg, handle, indent=2, ensure_ascii=False)
     handle.write("\n")
 
-print("Added subagent 'researcher' to", path)
+print("Added subagent 'rewiever' to", path)
 PY
 
-echo "Config works immediately (no restart). Paste: 'Investigate the structure of this repository. Use the researcher subagent.'"
+echo "Config works immediately (no restart). Paste: 'Investigate the structure of this repository. Use the rewiever subagent.'"
