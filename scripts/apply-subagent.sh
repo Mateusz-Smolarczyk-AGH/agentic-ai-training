@@ -18,7 +18,7 @@ with open(path, encoding="utf-8") as handle:
     cfg = json.load(handle)
 
 agents = cfg.setdefault("agent", {})
-agents["researcher"] = {
+agents["rewiever"] = {
     "description": "Investigates how something works in the repository. Read-only.",
     "mode": "subagent",
     "prompt": "Trace real code paths. Cite file:line. Distinguish what you verified from what you inferred. Answer the question you were asked; do not summarise the whole repository.",
