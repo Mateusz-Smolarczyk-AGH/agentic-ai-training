@@ -47,6 +47,18 @@
             "output": 32768
           }
         },
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017": {
+          "name": "DeepSeek V4.1 Flash 1017 (non-commercial, beta)",
+          "tool_call": true,
+          "reasoning": true,
+          "interleaved": {
+            "field": "reasoning"
+          },
+          "limit": {
+            "context": 1048576,
+            "output": 32768
+          }
+        },
         "deepseek-ai/DeepSeek-V4-Flash": {
           "name": "DeepSeek V4 Flash",
           "tool_call": true,
