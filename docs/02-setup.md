@@ -100,9 +100,6 @@ Skrypt robi po kolei:
 
 Katalog docelowy to `$SCRATCH/szkolenie`, a gdy `$SCRATCH` nie jest ustawiony — `$HOME/szkolenie`.
 
-**Co powinieneś zobaczyć:** listę **20 modeli `plgrid/…`**, a na końcu
-uruchomiony opencode, w którym zadajesz pytanie i dostajesz odpowiedź.
-
 ## Test — pierwsze pytanie
 
 > 🚀 **Wklej do opencode:** dowolne pytanie, np.:
