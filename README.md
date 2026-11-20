@@ -71,14 +71,13 @@ szkolenie/
 Konfiguracja z **wszystkimi modelami PLGrid** i agentami startowymi (`chat`,
 `demo-vulnerable`) leży w [`.opencode/opencode.json`](.opencode/opencode.json), jest
 **commitowana** i wczytuje się automatycznie, gdy opencode startuje z katalogu repo — na
-klastrze, lokalnie i w kontenerze. Nie trzeba jej nigdzie kopiować. Autoryzację robisz przez
-`opencode auth login plgrid` — opencode zapisuje klucz u siebie, nigdy w repo.
+klastrze.
 
 ### Narzędzie
 
 Używamy wyłącznie **opencode** i modeli **PLGrid Forge** w ramach PLGrid — bez komercyjnych
 kluczy API. Inne harnessy są poza zakresem warsztatu. Wersja to **opencode 2.1.3** — z modułu
-`opencode/2.1.3` na klastrze, z obrazu kontenera albo z `npm install -g @opencode/cli@2.1.3`.
+`opencode/2.1.3` na klastrze.
 
 ---
 
@@ -151,12 +150,10 @@ szkolenie/
 The configuration with **all PLGrid models** and the starter agents (`chat`,
 `demo-vulnerable`) lives in [`.opencode/opencode.json`](.opencode/opencode.json), is
 **committed** and loads automatically when opencode starts from the repo directory — on the
-cluster, locally and in the container. You do not have to copy it anywhere. You authorize with
-`opencode auth login plgrid` — opencode stores the key on its own side, never in the repo.
+cluster.
 
 ### Tooling
 
 We use only **opencode** and the **PLGrid Forge** models within PLGrid — no commercial API keys.
 Other harnesses are out of scope for the workshop. The version is **opencode 2.1.3** — from the
-`opencode/2.1.3` module on the cluster, from the container image, or from
-`npm install -g @opencode/cli@2.1.3`.
+`opencode/2.1.3` module on the cluster.
