@@ -100,9 +100,6 @@ The script goes through the following, in order:
 
 The target directory is `$SCRATCH/szkolenie`, and when `$SCRATCH` is not set — `$HOME/szkolenie`.
 
-**What you should see:** a list of **20 `plgrid/…` models**, and at the end
-opencode running, in which you ask a question and get an answer.
-
 ## Test — the first question
 
 > 🚀 **Paste into opencode:** any question, for example:
