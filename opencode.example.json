@@ -1,0 +1,228 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "plgrid/deepseek-ai/DeepSeek-V4.1-Flash",
+  "small_model": "plgrid/google/gemma-4-31B",
+  "instructions": [
+    "AGENTS.md"
+  ],
+  "share": "disabled",
+  "lsp": true,
+  "compaction": {
+    "auto": true,
+    "prune": true
+  },
+  "mcp": {
+    "timeout": {
+      "startup": 120000
+    },
+    "context7": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "comment": "Library/framework documentation lookup. Works unauthenticated. CONTEXT7_API_KEY is unset before opencode starts, so the {env:CONTEXT7_API_KEY} api-key option does not resolve in-container; add a Docker secret to enable it."
+    }
+  },
+  "command": {
+    "check": {
+      "description": "Type-check and test the project, then fix what fails",
+      "template": "Run the project's type checker and test suite. Report the real output. Then fix every failure, re-running after each fix until clean. If a failure is in a test rather than the code, say so before changing it."
+    },
+    "review": {
+      "description": "Review the working diff for defects",
+      "agent": "reviewer",
+      "template": "Review this diff for defects:\n\n!`git diff HEAD 2>/dev/null || git diff 2>/dev/null || echo '(not a git repo - review the files that were most recently modified)'`"
+    },
+    "explain": {
+      "description": "Explain how something works in this codebase",
+      "agent": "researcher",
+      "template": "Explain how $ARGUMENTS works in this codebase. Trace the actual code paths and cite file:line for each claim."
+    }
+  },
+  "permission": {
+    "read": {
+      "*": "allow",
+      "/run/secrets/**": "deny",
+      "**/.ssh/**": "deny",
+      "**/auth.json": "deny",
+      "**/.env": "deny"
+    },
+    "bash": {
+      "*": "ask",
+      "ls *": "allow",
+      "cat *": "allow",
+      "rg *": "allow",
+      "grep *": "allow",
+      "find *": "allow",
+      "echo *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "wc *": "allow",
+      "sort *": "allow",
+      "uniq *": "allow",
+      "diff *": "allow",
+      "pwd": "allow",
+      "which *": "allow",
+      "tree *": "allow",
+      "git status*": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git show *": "allow",
+      "git commit*": "ask",
+      "python3 *": "allow",
+      "pytest *": "allow",
+      "rm -rf *": "deny",
+      "git push *": "deny",
+      "git rebase*": "deny",
+      "git reset --hard*": "deny",
+      "gitnexus *": "allow",
+      "npx gitnexus *": "allow",
+      "node .gitnexus/run.cjs *": "allow",
+      "crwl *": "allow",
+      "crwl": "allow",
+      "mkdir *": "allow",
+      "touch *": "allow",
+      "env": "deny",
+      "env *": "deny",
+      "printenv*": "deny",
+      "cat /proc/*/environ*": "deny",
+      "echo $PLGRID*": "deny",
+      "echo $CONTEXT7*": "deny",
+      "echo $GITHUB*": "deny",
+      "cat /run/secrets/*": "deny",
+      "cat *auth.json": "deny",
+      "cat *.env": "deny",
+      "grep * /run/secrets/*": "deny",
+      "rg * /run/secrets/*": "deny",
+      "find /run/secrets*": "deny",
+      "head * /run/secrets/*": "deny",
+      "tail * /run/secrets/*": "deny"
+    },
+    "webfetch": "allow",
+    "gitnexus_*": "allow",
+    "context7_*": "allow",
+    "paper_search_*": "allow",
+    "playwright_*": "allow",
+    "skill": {
+      "gitnexus-*": "allow",
+      "paper-search": "allow",
+      "playwright-*": "allow",
+      "llm-wiki": "allow",
+      "cyfrocode-specialists": "allow"
+    }
+  },
+  "agent": {
+    "chat": {
+      "description": "Plain chat with no tools, for models that cannot call tools.",
+      "mode": "primary",
+      "tools": {
+        "*": false
+      },
+      "steps": 5
+    },
+    "reviewer": {
+      "description": "Reviews a change for correctness, security and maintainability defects and reports them with file:line, most severe first. Read-only: never edits files or runs commands.",
+      "mode": "subagent",
+      "model": "plgrid/zai-org/GLM-5.3-Flash",
+      "temperature": 0.1,
+      "prompt": "You are a code reviewer. Report concrete defects with file:line references, ordered most severe first. For each: what breaks, and the inputs that trigger it. Do not restate what the code does. If you find nothing real, say so plainly rather than inventing style nits. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      },
+      "steps": 20
+    },
+    "researcher": {
+      "description": "Investigates how something works across the codebase and reports findings. Read-only.",
+      "mode": "subagent",
+      "model": "plgrid/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "prompt": "You investigate and report. Trace the actual code paths, quote the lines that matter with file:line, and distinguish what you verified from what you inferred. Answer the question asked \u2014 do not summarise the whole codebase. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "deny",
+          "rg *": "allow",
+          "grep *": "allow",
+          "find *": "allow",
+          "ls *": "allow"
+        }
+      },
+      "steps": 30
+    },
+    "architect": {
+      "description": "Plans and delegates. Investigates with read-only tools, states a numbered plan, then hands every edit to a subagent. Cannot edit files itself.",
+      "mode": "primary",
+      "model": "plgrid/deepseek-ai/DeepSeek-V4.1-Flash",
+      "temperature": 0.1,
+      "prompt": "You plan and delegate; you never edit files yourself. Investigate first with read and search tools. If requirements are ambiguous, context is missing, or there are multiple architectural choices, STOP and ask the user for a decision before formulating the final plan. Once everything is clear, state a concrete plan as numbered steps, each naming the files it touches. Delegate implementation to @fastfix for small mechanical edits and @editor for substantial ones, and use @reviewer to check the result. If a step is too vague to delegate, sharpen it before handing it over. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "patch": false
+      },
+      "permission": {
+        "task": {
+          "*": "allow"
+        }
+      },
+      "steps": 40
+    },
+    "fastfix": {
+      "description": "Small, well-specified mechanical edits: a rename, a docstring, an obvious one-line fix. Give it the exact files and the exact change.",
+      "mode": "subagent",
+      "model": "plgrid/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "temperature": 0.1,
+      "prompt": "Make the smallest change that satisfies the request. Do not refactor adjacent code, do not add comments that were not asked for, do not reformat untouched lines. When done, state in one line what you changed. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+    "permission": {
+        "bash": "deny",
+        "read": "allow",
+        "edit": "allow",
+        "task": {
+          "researcher": "allow",
+          "reviewer": "allow"
+        }
+      },
+      "steps": 15
+    },
+    "quick": {
+      "description": "Small primary for cheap, fast tasks.",
+      "mode": "primary",
+      "model": "plgrid/Qwen/Qwen3.8-27B",
+      "temperature": 0.1,
+      "steps": 25
+    },
+    "editor": {
+      "description": "Implements substantial or hard, multi-file code changes from a concrete plan step. Writes and edits files, runs tests and type checks, and reports real output. Reserve it for work where that matters; for routine changes use @editor-cheap.",
+      "mode": "subagent",
+      "model": "plgrid/deepseek-ai/DeepSeek-V4.1-Flash",
+      "temperature": 0.1,
+      "prompt": "You implement code. Read every file before you change it. Make the smallest coherent change that satisfies the request and nothing more. Match the surrounding code - naming, comment density, idioms. Never write explanatory comments. Handle errors explicitly and validate external input. Run the project's tests or type checker and report the real output, including failures; if you did not verify something, say so. When done, state what changed and what remains. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+      "permission": {
+        "edit": "allow",
+        "task": {
+          "researcher": "allow",
+          "reviewer": "allow"
+        }
+      },
+      "steps": 60
+    },
+    "editor-cheap": {
+      "description": "Implements routine code changes from a concrete plan step, at ~1/3 the output cost of @editor. Use for routine work; escalate to @editor when the task is hard or spans many files.",
+      "mode": "subagent",
+      "model": "plgrid/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "temperature": 0.1,
+      "prompt": "You implement code. Read every file before you change it. Make the smallest coherent change that satisfies the request and nothing more. Match the surrounding code - naming, comment density, idioms. Never write explanatory comments. Handle errors explicitly and validate external input. Run the project's tests or type checker and report the real output, including failures; if you did not verify something, say so. When done, state what changed and what remains. Use your tools to inspect real files rather than guessing at contents. Put only the parameter value inside a tool call - never reasoning or commentary. Do your thinking before the call, then emit a clean call.",
+      "permission": {
+        "edit": "allow",
+        "task": {
+          "researcher": "allow",
+          "reviewer": "allow"
+        }
+      },
+      "steps": 30
+    }
+  }
+}

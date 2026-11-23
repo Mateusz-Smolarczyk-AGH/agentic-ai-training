@@ -17,7 +17,7 @@ bash scripts/reset-demo.sh
 
 ## The llm-wiki exercise
 
-In [docs/17-llm-wiki.md](../docs/17-llm-wiki.md) we ask the agent to build a wiki in
-**raw-only** mode from the sources in `wiki/llm-wiki/raw/`. `seed.md` is a small ready-made
-source document: drop it into `wiki/llm-wiki/raw/` if you want a corpus without doing the
-research step.
+In [docs/16-llm-wiki.md](../docs/16-llm-wiki.md) we ask the agent to build a wiki in
+**raw-only** mode from the sources in `wiki/llm-wiki/raw/`. The corpus is pre-seeded there;
+`seed.md` is an optional minimal source document for a quick demo — drop it into
+`wiki/llm-wiki/raw/` if you want one more input.

@@ -18,3 +18,5 @@ Files:
 | File           | What for                                                     |
 |----------------|--------------------------------------------------------------|
 | `app-bugs.md`  | known bugs in `examples/mini-projekt/app.py` (start version) |
+| `research-prompt.md` | instructor-only research prompt + corpus manifest (`wiki/llm-wiki/raw/`) |
+| `research-demo.sh`   | prepares/prints the research material (topic + prompt)       |

@@ -1,6 +1,6 @@
 # Własna baza wiedzy (LLM Wiki)
 
-[← Poprzednia: Research agentowy](16-agent-research.md) · [Agenda](00-agenda.md)
+[← Poprzednia: Podagenci ⭐](15-podagenci.md) · [Agenda](00-agenda.md) · [Następna: Instalacja lokalna →](17-instalacja-lokalna.md)
 
 ## Krok 1 — tworzenie wiki
 
@@ -11,6 +11,8 @@ Zbuduj wiki `llm-wiki` w katalogu ./wiki/llm-wiki/ na podstawie danych w /raw
 Tryb raw-only, język pl.
 ```
 Następnie agent będzie tworzył wiki. W naszym przypadku ze względu na to, że 20 uczestników spotkania na raz korzysta z tego nie delegujemy zadania tworzenia wiki do podagentów. Jednak pracując samemu warto pozwolić agentowi równolegle delegować zadania do wielu podagentów - przyspiesza to pracę.
+
+Korpus wejściowy jest już przygotowany w `wiki/llm-wiki/raw/` — prace naukowe i wpisy inżynieryjne o „LLM Wiki / agent-native wikis vs RAG" — więc osobny krok researchu nie jest potrzebny.
 
 > 🚀 **Wpisz `!` i wklej do opencode:**
 
@@ -46,29 +48,36 @@ prześledzenia źródła**; RAG — szybkie dopasowanie fragmentów.
 
 ## Krok 3 — pokaz: bez wiki vs z wiki
 
-Wiki powstaje **na żywo**, więc pytania mamy przygotowane z góry — ale **ogólne**, o temacie
-researchu z poprzedniego bloku. Odpowiedź ma być **krótka (jedno zdanie)**. Porównujemy nie
-treść odpowiedzi, a **drogę do informacji**: co agent po kolei zrobił (lista `tool call`),
-ile go to kosztowało i jak szybko da się potem tę odpowiedź sprawdzić.
+Wiki powstaje **na żywo**, więc pytania mamy przygotowane z góry — ale **pod ten korpus**. Każde
+pytanie wymaga **złożenia faktów z kilku różnych artykułów** i to jest sedno pokazu: strona
+koncepcyjna wiki robi dokładnie to — scala wiedzę z kilku źródeł w jedno miejsce. W żadnym
+pojedynczym pliku `raw/` nie ma całej odpowiedzi, więc tryb „bez wiki" musi przekopać kilka PDF-ów
+i posklejać fakty; tryb „z wiki" czyta **jedną stronę**, która już to zrobiła. Odpowiedź ma być
+**krótka (jedno zdanie)**. Porównujemy nie treść odpowiedzi, a **drogę do informacji**: co agent po
+kolei zrobił (lista `tool call`), ile go to kosztowało i jak szybko da się potem tę odpowiedź sprawdzić.
 
 > 🚀 **Najpierw przełącz model:** `/models` → `plgrid/Qwen/Qwen3.6-27B` (mały, ale sprawnie
 > używa narzędzi). Ten sam model zostaje dla obu przebiegów.
 
 ### Pytania (wybierz jedno)
 
-Ogólne, o temacie researchu; odpowiedź zawsze jedno zdanie:
+Pytania są dobrane pod **ten** korpus: odpowiedź każdego powstaje ze złożenia faktów z kilku
+artykułów, a robi to strona koncepcyjna wiki. Odpowiedź zawsze **jedno zdanie**.
 
-| Pytanie | Odpowiedź |
-|---|---|
-| Czym jest LLM Wiki (agent-native wiki) i po co się ją buduje? | jedno zdanie |
-| Czym LLM Wiki różni się od klasycznego RAG? | jedno zdanie |
-| Kiedy agentic retrieval wygrywa z długim kontekstem? | jedno zdanie |
-| Co daje GraphRAG i jakie ma ograniczenia? | jedno zdanie |
-| Jak wygląda cykl życia pamięci agenta? | jedno zdanie |
-| Jak agent utrzymuje jakość wiki w czasie? | jedno zdanie |
+| Pytanie |
+|---|
+| Dlaczego samo wyszukiwanie podobieństwem nie wystarcza w dużym korpusie i co je uzupełnia? |
+| Jakie różne ograniczenia RAG ujawniają niezależne prace i co je adresuje? |
+| Jak wygląda cykl życia pamięci agenta i dlaczego sama akumulacja nie wystarcza? |
+| Czym różnią się benchmarki pamięci od benchmarków multi-hop i dlaczego rozmiar kontekstu ma znaczenie? |
+| Kiedy długi kontekst nie zastępuje ani RAG, ani pamięci agenta? |
+| Dlaczego indeks wektorowy nie jest jeszcze pamięcią agenta? |
+| Czym różnią się dwa znaczenia „GraphRAG" i kiedy które wygrywa? |
+| Jak agent utrzymuje jakość wiki w czasie? |
+
 
 Strony wiki powstają na żywo — przed pytaniem zerknij do `wiki/llm-wiki/wiki/index.md`, czy
-temat jest pokryty.
+temat jest pokryty (i pod którą stroną).
 
 > 🚀 **Bez wiki — agent `plan` (raw i sieć, bez bundla):**
 
@@ -125,8 +134,8 @@ sprawdza się ją potem — przy audycie, w pracy zespołowej i przy powrocie do
 
 ## Wróć do pojęcia research vs destylacja
 
-- **Research** (otwarty) — web, prace naukowe, dokumentacja.
-- **Destylacja** (zamknięta) — wyłącznie `raw/`. Zaufane, cytowalne źródło.
+- **Research** (otwarty) — web, prace naukowe, dokumentacja. Trwa długo i kosztuje, więc korpus zbieramy z góry, raz.
+- **Destylacja** (zamknięta) — wyłącznie `raw/`. Zaufane, cytowalne źródło, z którego wiki wyciąga esencję.
 
 ## Gotowe, gdy…
 
@@ -138,4 +147,4 @@ sprawdza się ją potem — przy audycie, w pracy zespołowej i przy powrocie do
 
 ---
 
-[← Poprzednia: Research agentowy](16-agent-research.md) · [Agenda](00-agenda.md)
+[← Poprzednia: Podagenci ⭐](15-podagenci.md) · [Agenda](00-agenda.md) · [Następna: Instalacja lokalna →](17-instalacja-lokalna.md)

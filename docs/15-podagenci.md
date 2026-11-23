@@ -1,6 +1,6 @@
 # Podagenci ⭐ (zadanie dodatkowe)
 
-[← Poprzednia: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Następna: Research agentowy →](16-agent-research.md)
+[← Poprzednia: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Następna: Własna baza wiedzy (LLM Wiki) →](16-llm-wiki.md)
 
 > **⭐ Zadanie dodatkowe, opcjonalne** — dla osób, które pójdą szybciej.
 
@@ -73,4 +73,4 @@ Np. Osobny agent jako rewiev kodu na innym modelu.
 
 ---
 
-[← Poprzednia: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Następna: Research agentowy →](16-agent-research.md)
+[← Poprzednia: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Następna: Własna baza wiedzy (LLM Wiki) →](16-llm-wiki.md)

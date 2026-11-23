@@ -3,7 +3,7 @@
 **First steps with AI agents: research, working with code and your own wiki**
 24.11.2026, Krakow · 10:30–14:00 (3.5 h, break around 12:00, lunch from 14:00)
 
-> Start with the setup, see the difference between chat and agent, work on real code, understand security and in the end build your own wiki from articles found by the agent.
+> Start with the setup, see the difference between chat and agent, work on real code, understand security and in the end build your own wiki from articles collected in `raw/`.
 
 ## Agenda
 
@@ -24,8 +24,7 @@
 | 12:40–13:10 | [Security](12-security.md)                                         | injection → allow/ask → deny → workaround → leak                  | You understand the risks of working with an agent and how to use it safely |
 | 13:10–13:25 | [Skills](13-skills.md)                                             | Test before/after, add a skill                                    | The agent with a skill behaves differently                                 |
 | ---         | [MCP](14-mcp.md) ⭐ or [Subagents](15-subagents.md) ⭐               | Add an MCP server or a subagent                                   | The tool works                                                             |
-| 13:25–13:40 | [Agentic research](16-agentic-research.md)                         | The agent fetches source documents into `wiki/llm-wiki/raw/`      | Source corpus in `raw/`                                                    |
-| 13:40–14:00 | [LLM Wiki](17-llm-wiki.md)                                         | Wiki from the research corpus + comparison with wiki/without wiki | The answer cites a wiki page                                               |
+| 13:25–14:00 | [LLM Wiki](16-llm-wiki.md)                                         | Wiki from the research corpus + comparison with wiki/without wiki | The answer cites a wiki page                                               |
 
 ## Pages
 
@@ -44,5 +43,5 @@
 13. [Skills](13-skills.md)
 14. [MCP ⭐](14-mcp.md)
 15. [Subagents ⭐](15-subagents.md)
-16. [Agentic research](16-agentic-research.md)
-17. [LLM Wiki](17-llm-wiki.md)
+16. [LLM Wiki](16-llm-wiki.md)
+17. [Local install — opencode + PLGrid](17-local-install.md)

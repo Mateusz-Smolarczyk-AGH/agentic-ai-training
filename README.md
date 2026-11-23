@@ -4,8 +4,9 @@
 
 ## Polski
 
-> Uwaga o języku: dokumentacja warsztatu w `docs/` jest po polsku (wersja angielska w
-> przygotowaniu). Reszta repozytorium — skrypty, przykłady, komentarze — jest po angielsku.
+> Uwaga o języku: dokumentacja warsztatu w `docs/` jest po polsku, a jej angielski
+> odpowiednik leży w [`docs-ang/`](docs-ang/00-agenda.md). Reszta repozytorium — skrypty,
+> przykłady, komentarze — jest po angielsku.
 
 Repo warsztatu na **24.11.2026, Kraków** (10:30–14:00). Uczestnicy dostają to repozytorium na
 klastrze i przeglądają je na GitHubie. Wszystko, czego potrzebujesz, jest tutaj — nie musisz
@@ -31,6 +32,10 @@ MCP, podagenci) działają **od razu, bez restartu**.
 **Nie edytujesz plików ręcznie.** Zmiany robisz gotowymi komendami — tak, żeby nawet bez
 znajomości terminala wszystko działało.
 
+Ściągawka do prowadzenia — **wszystkie prompty i komendy do skopiowania, w kolejności**
+(kroki 02–17; sekcje teoretyczne nie mają nic do kopiowania), z etykietą, gdzie to wkleić,
+czy to prompt czy bash, jaki agent i model: [docs/sciaga.md](docs/sciaga.md).
+
 Zadania oznaczone **⭐** są **dodatkowe, opcjonalne** — dla osób, które pójdą szybciej.
 Opisujemy je dokładnie: co to jest, jak działa, jak dodać, jak przetestować.
 
@@ -39,6 +44,9 @@ Opisujemy je dokładnie: co to jest, jak działa, jak dodać, jak przetestować.
 1. [Wstęp](docs/01-wstep.md)
 2. [Setup — połączenie i start](docs/02-setup.md)
 3. Dalej — kolejne kroki z [Agendy](docs/00-agenda.md)
+
+Po szkoleniu: [Instalacja lokalna — opencode + PLGrid](docs/17-instalacja-lokalna.md) —
+opencode 2.x, plugin PLGrid i własny klucz API na własnym komputerze (macOS, Linux).
 
 Na klastrze prowadzący rozdaje plik **`setup.sh`**. Leży on w **katalogu głównym repozytorium**
 i jest **gitignorowany** — nie trafia do repo. Uruchomiony przez `bash setup.sh` robi po kolei:
@@ -56,6 +64,7 @@ Pełna agenda z czasami, komendami i kryteriami „Gotowe, gdy…” jest w
 ```
 szkolenie/
 ├── docs/                 # konspekt i kroki ćwiczeń (00..17)
+├── docs-ang/             # angielska wersja dokumentacji
 ├── scripts/              # gotowe komendy dla uczestników
 ├── setup.sh              # bootstrap klastra (rozdawany, gitignorowany)
 ├── snippets/             # fragmenty konfiguracji do wklejenia
@@ -83,8 +92,9 @@ kluczy API. Inne harnessy są poza zakresem warsztatu. Wersja to **opencode 2.1.
 
 ## English
 
-> A note on language: the workshop documentation in `docs/` is in Polish (an English version is
-> in preparation). The rest of the repository — scripts, examples, comments — is in English.
+> A note on language: the workshop documentation in `docs/` is in Polish; the English
+> counterpart lives in [`docs-ang/`](docs-ang/00-agenda.md). The rest of the repository —
+> scripts, examples, comments — is in English.
 
 Workshop repo for **24.11.2026, Krakow** (10:30–14:00). Participants get this repository on the
 cluster and browse it on GitHub. Everything you need is here — you do not have to install
@@ -110,14 +120,21 @@ skills, MCP, subagents) take effect **immediately, with no restart**.
 **You do not edit files by hand.** You make changes with ready-made commands — so that
 everything works even without knowing the terminal.
 
+A copy-paste cheat sheet for running the session — **every prompt and command in order**
+(steps 02–17; the theory sections have nothing to copy), labelled with where to paste it,
+prompt vs bash, agent and model — available in Polish only: [docs/sciaga.md](docs/sciaga.md).
+
 Tasks marked **⭐** are **extra, optional** — for people who move ahead faster. We describe them
 in detail: what it is, how it works, how to add it, how to test it.
 
 ### Start
 
-1. [Introduction](docs/01-wstep.md)
-2. [Setup — connection and start](docs/02-setup.md)
-3. Then — the following steps from the [Agenda](docs/00-agenda.md)
+1. [Introduction](docs-ang/01-introduction.md)
+2. [Setup — connecting and starting](docs-ang/02-setup.md)
+3. Then — the following steps from the [Agenda](docs-ang/00-agenda.md)
+
+After the workshop: [Local install — opencode + PLGrid](docs-ang/17-local-install.md) —
+opencode 2.x, the PLGrid plugin and your own API key on your own machine (macOS, Linux).
 
 On the cluster the trainer hands out the **`setup.sh`** file. It sits in the **repository root**
 and is **gitignored** — it is not committed to the repo. Run with `bash setup.sh`, it goes
@@ -128,13 +145,14 @@ participant commands.
 ### Agenda (outline)
 
 The full agenda with times, commands and "Done when…" criteria is in
-[docs/00-agenda.md](docs/00-agenda.md).
+[docs-ang/00-agenda.md](docs-ang/00-agenda.md).
 
 ### Repository layout
 
 ```
 szkolenie/
 ├── docs/                 # outline and exercise steps (00..17)
+├── docs-ang/             # English version of the documentation
 ├── scripts/              # ready-made commands for participants
 ├── setup.sh              # cluster bootstrap (distributed, gitignored)
 ├── snippets/             # configuration fragments to paste

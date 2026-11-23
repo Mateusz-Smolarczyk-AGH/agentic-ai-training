@@ -1,6 +1,6 @@
 # Your own knowledge base (LLM Wiki)
 
-[← Previous: Agentic research — using agents for research](16-agentic-research.md) · [Agenda](00-agenda.md)
+[← Previous: Subagents ⭐](15-subagents.md) · [Agenda](00-agenda.md) · [Next: Local install →](17-local-install.md)
 
 ## Step 1 — creating the wiki
 
@@ -11,6 +11,8 @@ Build the `llm-wiki` wiki in the ./wiki/llm-wiki/ directory from the data in /ra
 Raw-only mode, language en.
 ```
 The agent will then build the wiki. In our case, because 20 participants of the meeting are using this at once, we do not delegate the task of building the wiki to subagents. However, when working on your own it is worth letting the agent delegate tasks to many subagents in parallel - it speeds the work up.
+
+The source corpus is already prepared in `wiki/llm-wiki/raw/` — research papers and engineering write-ups about "LLM Wiki / agent-native wikis vs RAG" — so no separate research step is needed.
 
 > 🚀 **Type `!` and paste into opencode:**
 
@@ -46,29 +48,36 @@ trace a source**; RAG — fast matching of fragments.
 
 ## Step 3 — demo: without a wiki vs with a wiki
 
-The wiki is built **live**, so we have the questions prepared in advance — but **general**, about the topic
-of the research from the previous block. The answer should be **short (one sentence)**. We compare not
-the content of the answer but **the path to the information**: what the agent did step by step (the `tool call` list),
-what it cost and how quickly you can then check that answer.
+The wiki is built **live**, so we have the questions prepared in advance — but **for this corpus**. Each
+question requires **combining facts from several different articles**, and that is the point of the demo:
+a concept page in the wiki does exactly that — it merges knowledge from several sources into one place.
+No single file in `raw/` holds the whole answer, so the "without a wiki" mode has to dig through several
+PDFs and stitch the facts together; the "with a wiki" mode reads **one page** that has already done it.
+The answer should be **short (one sentence)**. We compare not the content of the answer but **the path to
+the information**: what the agent did step by step (the `tool call` list), what it cost and how quickly
+you can then check that answer.
 
 > 🚀 **First switch the model:** `/models` → `plgrid/Qwen/Qwen3.6-27B` (small, but it uses tools
 > efficiently). The same model stays for both runs.
 
 ### Questions (pick one)
 
-General, about the research topic; the answer is always one sentence:
+The questions are chosen for **this** corpus: every answer comes from combining facts across several
+articles, which is what a concept page in the wiki does. The answer is always **one sentence**.
 
-| Question | Answer |
-|---|---|
-| What is LLM Wiki (an agent-native wiki) and why build it? | one sentence |
-| How does LLM Wiki differ from classic RAG? | one sentence |
-| When does agentic retrieval beat long context? | one sentence |
-| What does GraphRAG give you and what are its limitations? | one sentence |
-| What does the life cycle of agent memory look like? | one sentence |
-| How does the agent keep the wiki's quality up over time? | one sentence |
+| Question |
+|---|
+| Why is similarity search alone not enough in a large corpus, and what complements it? |
+| Which different limitations of RAG do independent works reveal, and what addresses them? |
+| What does the life cycle of agent memory look like, and why is accumulation alone not enough? |
+| How do memory benchmarks differ from multi-hop benchmarks, and why does context size matter? |
+| When does long context replace neither RAG nor agent memory? | 
+| Why is a vector index not yet agent memory? |
+| How do the two meanings of "GraphRAG" differ, and when does each win? | 
+| How does the agent keep the wiki's quality up over time? | 
 
 The wiki pages are built live — before asking, glance at `wiki/llm-wiki/wiki/index.md` to see whether
-the topic is covered.
+the topic is covered (and under which page).
 
 > 🚀 **Without a wiki — the `plan` agent (raw and the web, no bundle):**
 
@@ -97,7 +106,7 @@ and how much checking it costs:
 > 🚀 **See both paths side by side** — in a second terminal, next to the opencode session, paste:
 
 ```bash
-bash scripts/wiki-compare.sh "<twoje pytanie>"
+bash scripts/wiki-compare.sh "<your question>"
 ```
 
 The script itself launches `opencode run` in headless mode, which is why we run it in a second terminal
@@ -109,7 +118,7 @@ and leave the opencode session next to it. It runs both modes with the same mode
 > 🚀 **The quick variant:** in that same second terminal limit the time of the "without a wiki" mode, so that the wiki has time while raw is still searching:
 
 ```bash
-TIMEOUT_RAW=60 bash scripts/wiki-compare.sh "<twoje pytanie>"
+TIMEOUT_RAW=60 bash scripts/wiki-compare.sh "<your question>"
 ```
 
 ### Conclusion
@@ -125,8 +134,8 @@ and an answer that you **verify by opening one page**. That is why checking it l
 
 ## Back to the idea of research vs distillation
 
-- **Research** (open) — the web, papers, documentation.
-- **Distillation** (closed) — `raw/` only. A trusted, citable source.
+- **Research** (open) — the web, papers, documentation. It is slow and costly, so the corpus is collected up front, once.
+- **Distillation** (closed) — `raw/` only. A trusted, citable source that the wiki distils.
 
 ## Done when…
 
@@ -138,4 +147,4 @@ and an answer that you **verify by opening one page**. That is why checking it l
 
 ---
 
-[← Previous: Agentic research — using agents for research](16-agentic-research.md) · [Agenda](00-agenda.md)
+[← Previous: Subagents ⭐](15-subagents.md) · [Agenda](00-agenda.md) · [Next: Local install →](17-local-install.md)

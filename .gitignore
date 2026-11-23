@@ -17,6 +17,8 @@ _site/
 
 /wiki/llm-wiki/raw/*
 !/wiki/llm-wiki/raw/.gitkeep
+!/wiki/llm-wiki/raw/*.pdf
+!/wiki/llm-wiki/raw/*.md
 /wiki/llm-wiki/wiki/*
 !/wiki/llm-wiki/wiki/.gitkeep
 .tmp-wiki/
@@ -26,3 +28,5 @@ wiki/llm-wiki/AGENTS.md
 /loadtest.sh
 /.loadtest/
 /loadtest-report.py
+/loadtest-code.sh
+/loadtest-code-report.py

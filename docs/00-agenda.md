@@ -3,7 +3,9 @@
 **Pierwsze kroki z agentami AI: research, praca z kodem i własna wiki**
 24.11.2026, Kraków · 10:30–14:00 (3,5 h, przerwa ok. 12:00, lunch od 14:00)
 
-> Zacznij od setupu, zobacz różnicę chat vs agent, popracuj na kodzie, zrozum bezpieczeństwo i na końcu zbuduj własną wiki z artykułów znalezionych przez agenta.
+> Zacznij od setupu, zobacz różnicę chat vs agent, popracuj na kodzie, zrozum bezpieczeństwo i na końcu zbuduj własną wiki z przygotowanych artykułów.
+
+> Ściągawka — wszystkie rzeczy do skopiowania po kolei (prompty, komendy, agent, model): [sciaga.md](sciaga.md)
 
 ## Plan dnia
 
@@ -24,8 +26,7 @@
 | 12:40–13:10 | [Bezpieczeństwo](12-bezpieczenstwo.md)                      | injection → allow/ask → deny → obejście → wyciek                   | Rozumiesz ryzyka podczas pracy z agentem i jak bezpiecznie korzystać                                     |
 | 13:10–13:25 | [Skille](13-skille.md)                                      | Test przed/po, dodaj skill                                         | Agent ze skillem zachowuje się inaczej                   |
 | --- | [MCP](14-mcp.md) ⭐ lub [Podagenci](15-podagenci.md) ⭐      | Dodaj serwer MCP albo podagenta                                    | Narzędzie działa                                         |
-| 13:25–13:40 | [Research agentowy](16-agent-research.md)                   | Agent pobiera dokumenty źródłowe do `wiki/llm-wiki/raw/` | Korpus źródeł w `raw/`                                   |
-| 13:40–14:00 | [LLM Wiki](17-llm-wiki.md)                                  | Wiki z korpusu researchu + porównanie z wiki/bez wiki              | Odpowiedź cytuje stronę wiki                             |
+| 13:25–14:00 | [LLM Wiki](16-llm-wiki.md)                                  | Wiki z korpusu researchu + porównanie z wiki/bez wiki              | Odpowiedź cytuje stronę wiki                             |
 
 ## Strony
 
@@ -44,5 +45,5 @@
 13. [Skille](13-skille.md)
 14. [MCP ⭐](14-mcp.md)
 15. [Podagenci ⭐](15-podagenci.md)
-16. [Research agentowy](16-agent-research.md)
-17. [LLM Wiki](17-llm-wiki.md)
+16. [LLM Wiki](16-llm-wiki.md)
+17. [Instalacja lokalna — opencode + PLGrid](17-instalacja-lokalna.md)

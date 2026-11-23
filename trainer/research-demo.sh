@@ -8,6 +8,7 @@ usage() {
   echo "Usage: $0 [--reset]" >&2
   echo "  (no arguments)    prepare wiki/llm-wiki/raw/ and print the topic and prompt" >&2
   echo "  --reset           delete the contents of wiki/llm-wiki/raw/ except .gitkeep" >&2
+  echo "  Uwaga: --reset czyści wiki/llm-wiki/raw/ razem ze skommitowanym korpusem — odtwórz go przez \`git checkout -- wiki/llm-wiki/raw\`." >&2
 }
 
 case "${1:-}" in
@@ -19,7 +20,7 @@ case "${1:-}" in
     cat <<'TXT'
 Example topic: "LLM Wiki / agent-native wikis and knowledge bases for LLMs — SOTA 2026: capabilities, advantages and limitations, comparison with RAG (GraphRAG, agentic retrieval, long context, agent memory)".
 
-The research prompt is in docs/16-agent-research.md — paste it into opencode (the `build` agent).
+The research prompt is in trainer/research-prompt.md — paste it into opencode (the `build` agent).
 
 Expected result in wiki/llm-wiki/raw/ (4–8 files):
 - research papers: original *.pdf (> 50 KB)

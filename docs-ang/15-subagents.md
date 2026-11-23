@@ -1,6 +1,6 @@
 # Subagents ⭐ (extra task)
 
-[← Previous: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Next: Agentic research — using agents for research →](16-agentic-research.md)
+[← Previous: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Next: Your own knowledge base (LLM Wiki) →](16-llm-wiki.md)
 
 > **⭐ Extra, optional task** — for people who go faster.
 
@@ -73,4 +73,4 @@ E.g. a separate agent as a code review on a different model.
 
 ---
 
-[← Previous: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Next: Agentic research — using agents for research →](16-agentic-research.md)
+[← Previous: MCP ⭐](14-mcp.md) · [Agenda](00-agenda.md) · [Next: Your own knowledge base (LLM Wiki) →](16-llm-wiki.md)
