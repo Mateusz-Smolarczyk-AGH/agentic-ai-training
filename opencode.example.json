@@ -2,9 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "plgrid/deepseek-ai/DeepSeek-V4.1-Flash",
   "small_model": "plgrid/google/gemma-4-31B",
-  "instructions": [
-    "AGENTS.md"
-  ],
   "share": "disabled",
   "lsp": true,
   "compaction": {
