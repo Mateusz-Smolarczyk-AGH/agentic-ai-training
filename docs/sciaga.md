@@ -19,7 +19,7 @@ ssh <login>@ares.cyfronet.pl
 **Gdzie:** terminal · **Typ:** bash · **Agent:** —
 
 ```bash
-srun --partition=cpu --nodes=1 --ntasks=1 --cpus-per-task=3 --time=4:00:00 --pty bash -l
+srun --partition=cpu --nodes=1 --ntasks=1 --cpus-per-task=6 --time=4:00:00 --pty bash -l
 ```
 
 ### 3. Uruchom skrypt prowadzącego
