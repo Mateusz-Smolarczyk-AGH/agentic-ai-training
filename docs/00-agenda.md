@@ -1,7 +1,7 @@
 # Agenda (konspekt)
 
 **Pierwsze kroki z agentami AI: research, praca z kodem i własna wiki**
-24.11.2026, Kraków · 10:30–14:00 (3,5 h, przerwa ok. 12:00, lunch od 14:00)
+24.11.2026, Kraków · 10:30–14:00 (3,5 h, przerwa ok. 12:30, lunch od 14:00)
 
 > Zacznij od setupu, zobacz różnicę chat vs agent, popracuj na kodzie, zrozum bezpieczeństwo i na końcu zbuduj własną wiki z przygotowanych artykułów.
 
